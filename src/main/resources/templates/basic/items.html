@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<title>Items</title>
+</head>
+<body>
+	<div class="container" style="max-width: 600px">
+		<div class="py-5 text-center">
+			<h2>List</h2>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="btn btn-primary float-right" th:onclick="|location.href='@{/basic/items/add}';|" type="button">Add</button>
+			</div>
+		</div>
+		<hr class="my-4" />
+		<div>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="item: ${items}">
+					<td><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.id}">ID</a></td>
+					<td><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.itemName}">Name</a></td>
+					<td th:text="${item.price}">Price</td>
+					<td th:text="${item.quantity}">Quantity</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
