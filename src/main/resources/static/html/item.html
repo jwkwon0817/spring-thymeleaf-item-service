@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<title>Item</title>
+	<style>
+		.container {
+			max-width: 560px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="py-5 text-center">
+			<h2>Goods Details</h2>
+		</div>
+		<div>
+			<label for="itemId">ID</label>
+			<input type="text" id="itemId" name="itemId" class="form-control" value="1" readonly />
+		</div>
+		<div>
+			<label for="itemName">Name</label>
+			<input type="text" id="itemName" name="itemName" class="form-control" value="Goods A" readonly /
+		</div>
+		<div>
+			<label for="price">Price</label>
+			<input type="text" id="price" name="itemPrice" class="form-control" value="10000" readonly />
+		</div>
+		<div>
+			<label for="quantity">Quantity</label>
+			<input type="text" id="quantity" name="quantity" class="form-control" value="10" readonly />
+		</div>
+		<hr class="my-4" />
+		<div class="row">
+			<div class="col">
+				<button class="w-100 btn btn-primary btn-lg" onclick="location.href='editForm.html';" type="button">Modify</button>
+			</div>
+			<div class="col">
+				<button class="w-100 btn btn-secondary btn-lg" onclick="location.href='items.html'" type="button">Go to List</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
