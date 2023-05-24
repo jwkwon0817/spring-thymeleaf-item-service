@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<title>Add</title>
+	<style>
+		.container {
+			max-width: 560px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="py-5 text-center">
+		<h2>Add</h2>
+	</div>
+	<h4 class="mb-3">Add</h4>
+	<form th:action th:object="${item}" method="post">
+		<div>
+			<label for="itemName">Name</label>
+			<input type="text" id="itemName" th:field="*{itemName}" class="form-control" placeholder="Please enter the goods name." />
+		</div>
+		<div>
+			<label for="price">Price</label>
+			<input type="text" id="price" th:field="*{price}" class="form-control" placeholder="Please enter the goods price." />
+		</div>
+		<div>
+			<label for="quantity">Quantity</label>
+			<input type="text" id="quantity" th:field="*{quantity}" class="form-control" placeholder="Please enter the goods quantity." />
+		</div>
+		<hr class="my-4">
+		<div class="row">
+			<div class="col">
+				<button class="w-100 btn btn-primary btn-lg" type="submit">Add</button>
+			</div>
+			<div class="col">
+				<button class="w-100 btn btn-secondary btn-lg" th:onclick="|location.href='@{/basic/items}';|" type="button">Cancel</button>
+			</div>
+		</div>
+	</form>
+</div>
+</body>
+</html>
