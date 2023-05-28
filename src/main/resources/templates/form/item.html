@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<title>Item</title>
+	<style>
+		.container {
+			max-width: 560px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="py-5 text-center">
+			<h2>Details</h2>
+		</div>
+		<h2 th:if="${param.status}" th:text="'Save Done'"></h2>
+		<div>
+			<label for="itemId">ID</label>
+			<input type="text" id="itemId" name="itemId" class="form-control" th:value="${item.id}" readonly />
+		</div>
+		<div>
+			<label for="itemName">Name</label>
+			<input type="text" id="itemName" name="itemName" class="form-control" th:value="${item.itemName}" readonly />
+		</div>
+		<div>
+			<label for="price">Price</label>
+			<input type="text" id="price" name="itemPrice" class="form-control" th:value="${item.price}" readonly />
+		</div>
+		<div>
+			<label for="quantity">Quantity</label>
+			<input type="text" id="quantity" name="quantity" class="form-control" th:value="${item.quantity}" readonly />
+		</div>
+		
+		<hr class="my-4" />
+		
+		<!-- Single Checkbox -->
+		<div>Whether to Sale</div>
+		<div>
+			<div class="form-check">
+				<input type="checkbox" id="open" name="open" th:field="${item.open}" class="form-check-input" disabled readonly />
+				<label for="open" class="form-check-label">Sale Open</label>
+			</div>
+		</div>
+		
+		<!-- Multi Checkbox -->
+		<div>
+			<div>Registration Area</div>
+			<div th:each="region : ${regions}" class="form-check form-check-inline">
+				<input type="checkbox" th:field="${item.regions}" th:value="${region.key}" class="form-check-input" disabled readonly/>
+				<label th:for="${#ids.prev('regions')}" th:text="${region.value}" class="form-check-label"></label>
+			</div>
+		</div>
+		
+		<!-- Radio Button -->
+		<div>
+			<div>Item Type</div>
+			<div th:each="type : ${itemTypes}" class="form-check form-check-inline">
+				<input type="radio" th:field="${item.itemType}" th:value="${type.name()}" class="form-check-input" disabled readonly />
+				<label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label"></label>
+			</div>
+		</div>
+		
+		<!-- Select -->
+		<div>
+			<div>Shipping Methods</div>
+			<select th:field="${item.deliveryCode}" class="custom-select" disabled readonly>
+				<option value="">== Select Shipping Method ==</option>
+				<option th:each="deliveryCode : ${deliveryCodes}" th:value="${deliveryCode.code}" th:text="${deliveryCode.displayName}"></option>
+			</select>
+		</div>
+		
+		<hr class="my-4" />
+		
+		<div class="row">
+			<div class="col">
+				<button class="w-100 btn btn-primary btn-lg" th:onclick="|location.href='@{/form/items/{itemId}/edit(itemId=${item.id})}';|" type="button">Modify</button>
+			</div>
+			<div class="col">
+				<button class="w-100 btn btn-secondary btn-lg" th:onclick="|location.href='@{/form/items}';|" type="button">Go to List</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
