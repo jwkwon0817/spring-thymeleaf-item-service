@@ -12,7 +12,7 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<button class="btn btn-primary float-right" th:onclick="|location.href='@{/basic/items/add}';|" type="button">Add</button>
+				<button class="btn btn-primary float-right" th:onclick="|location.href='@{/form/items/add}';|" type="button">Add</button>
 			</div>
 		</div>
 		<hr class="my-4" />
@@ -28,8 +28,8 @@
 				</thead>
 				<tbody>
 				<tr th:each="item: ${items}">
-					<td><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.id}">ID</a></td>
-					<td><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.itemName}">Name</a></td>
+					<td><a th:href="@{|/form/items/${item.id}|}" th:text="${item.id}">ID</a></td>
+					<td><a th:href="@{|/form/items/${item.id}|}" th:text="${item.itemName}">Name</a></td>
 					<td th:text="${item.price}">Price</td>
 					<td th:text="${item.quantity}">Quantity</td>
 				</tr>
