@@ -28,10 +28,29 @@
 				</thead>
 				<tbody>
 				<tr>
-					<td><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.id}" id="item-id">ID</a></td>
-					<td><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.itemName}">Name</a></td>
+					<td><a th:href="@{|/templates/form/items/${item.id}|}" th:text="${item.id}" id="item-id">ID</a></td>
+					<td><a th:href="@{|/templates/form/items/${item.id}|}" th:text="${item.itemName}">Name</a></td>
 					<td th:text="${item.price}">Price</td>
 					<td th:text="${item.quantity}">Quantity</td>
+				</tr>
+				</tbody>
+			</table>
+			<hr class="my-4" />
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Whether to Sale</th>
+					<th>Registration Area</th>
+					<th>Item Type</th>
+					<th>Shipping Method</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td th:text="${item.open} ? 'Yes' : 'No'">Whether to Sale</td>
+					<td th:text="${item.regions}">Registration Area</td>
+					<td th:text="${item.itemType}">Item Type</td>
+					<td th:text="${item.deliveryCode}">Shipping Method</td>
 				</tr>
 				</tbody>
 			</table>
@@ -42,7 +61,7 @@
 					<button class="w-100 btn btn-danger btn-lg" id="btn-delete" type="submit">Delete</button>
 				</div>
 				<div class="col">
-					<button class="w-100 btn btn-secondary btn-lg" th:onclick="|location.href='@{/basic/items/{itemId}(itemId=${item.id})}'|" type="button">Cancel</button>
+					<button class="w-100 btn btn-secondary btn-lg" th:onclick="|location.href='@{/form/items/{itemId}(itemId=${item.id})}'|" type="button">Cancel</button>
 				</div>
 			</div>
 		</form>
